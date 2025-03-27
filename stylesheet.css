@@ -1,32 +1,12 @@
 /* Basic CSS Starter Template */
 
 /* Reset default browser styles */
-html, body {
+body, h1, h2, h3, p, ul, ol, li, a {
     margin: 0;
     padding: 0;
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;   
-}
-* {
-    box-sizing: inherit;
+    box-sizing: border-box;
 }
 
-header {
-    margin-top: 0px;
-    text-align: center;
-    padding: 20px;
-    background-color: #30344f;
-    color: #e0af0e;
-    width: 100%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-header h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-}
 /* General body styles */
 body {
     font-family: Arial, sans-serif;
@@ -74,7 +54,7 @@ a {
     transition: background-color 0.3s, color 0.3s;
 }
 .nav-link:hover {
-    background-color: #3b3b4f;
+    background-color: #005f00;
     color: #9c9c9c;
 }
 /* Responsive media queries to adjust to different screen sizes*/
@@ -113,4 +93,33 @@ a {
         .main-image {
             width: 50%;
         }
+    }
+    .progress-container {
+        width: 100%;
+        background-color: #f3f3f3;
+        border-radius: 10px;
+        overflow: hidden;
+        margin: 20px 0;
+    }
+
+    .progress-bar {
+        height: 25px;
+        width: 60%; /* Set percentage dynamically */
+        background-color: #4caf50; /* Green color */
+        text-align: center;
+        color: white;
+        line-height: 25px; /* Align text vertically */
+    }
+
+    .progress-text {
+        margin-top: 10px;
+        text-align: center;
+        font-size: 16px;
+        color: #f0f1de;
+    }
+    h2 {
+        color: #14c46f;
+    }
+    h3 {
+        color: #f0f1de;
     }
