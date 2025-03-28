@@ -15,7 +15,18 @@ body {
     background-color: #262938;
     color: #333;
 }
+header {
+    margin-top: 0px;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+}
 
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
 /* Header styles */
 h1, h2, h3 {
     font-weight: bold;
@@ -32,6 +43,7 @@ a {
     padding: 20px;
     position: fixed;
 }
+
     
 .nav-list {
     list-style: none;
@@ -54,7 +66,7 @@ a {
     transition: background-color 0.3s, color 0.3s;
 }
 .nav-link:hover {
-    background-color: #005f00;
+    background-color: #3a3e44;
     color: #9c9c9c;
 }
 /* Responsive media queries to adjust to different screen sizes*/

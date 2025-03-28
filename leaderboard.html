@@ -1,12 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href = "stylesheet.css">
     <title>Document</title>
 </head>
+<header style="font-family: 'Montserrat', sans-serif; background-color: #252a49; padding: 10px 0;">
+    <div style="text-align: center; margin-top: 20px;">
+        <h1 style="color: #14c46f; font-size: 4rem; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+            EcoTrack
+        </h1>
+    </div>
+</header>
+<header>
+    <!-- Adding tabs to the navigation bar -->
+      <nav>
+        <ul class="nav-list" style="display: flex; justify-content: center; list-style: none; padding: 0; margin: 10px 0;">
+          <li class="nav-item" style="margin: 5 20px;"><a href="homepage.html" class="nav-link" style="color: #f0f1de; text-decoration: none; font-size: 1rem;">Home</a></li>
+          <li class="nav-item" style="margin: 5 20px;"><a href="stats.html" class="nav-link" style="color: #f0f1de; text-decoration: none; font-size: 1rem;">Your Statistics</a></li>
+          <li class="nav-item" style="margin: 5 20px;"><a href="leaderboard.html" class="nav-link" style="color: #f0f1de; text-decoration: none; font-size: 1rem;">Community Leaderboard</a></li>
+          <li class="nav-item" style="margin: 5 20px;"><a href="friends.html" class="nav-link" style="color: #f0f1de; text-decoration: none; font-size: 1rem;">Friends</a></li>
+        </ul>
+      </nav>
+</header>
 <body>
-    <h1>Welcome to My Webpage</h1>
-    <p>This is a basic HTML structure with a specified charset.</p>
-</body>
+    <header id="root"></header>
+    <div id="mydiv"></div>
+
+    <script type="text/babel">
+          const container = document.getElementById('root');
+          const root = ReactDOM.createRoot(container);
+          function sortWithOriginalIndices(array) {
+          const indexedArray = array.map((value, index) => ({ value, index }));
+
+          indexedArray.sort((a, b) => a.value - b.value);
+
+          const sortedValues = indexedArray.map(item => item.value);
+          const originalIndices = indexedArray.map(item => item.index);
+
+          return { sortedValues, originalIndices };
+        }
+
+        const usages = [5, 2, 8, 1, 9, 4];
+        const names = ["Jeff", "Bob", "Jim", "Joe", "John", "Bill"]
+        const { sortedValues, originalIndices } = sortWithOriginalIndices(usages);
+
+        console.log("Sorted Values:", sortedValues); // Output: [1, 2, 4, 5, 8, 9]
+        console.log("Original Indices:", originalIndices); // Output: [3, 1, 5, 0, 2, 4]
+        var filteredNames = [];
+        for (var i = 0; i < sortedValues.length; i++) {
+          filteredNames.push(names[originalIndices[i]])
+        }
+         root.render(filteredNames);
+    </script>
+
+  </body>
 </html>
