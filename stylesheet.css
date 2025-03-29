@@ -43,6 +43,25 @@ a {
     padding: 20px;
     position: fixed;
 }
+table {
+    font-family: arial, sans-serif;
+    width: 100%;
+    color:antiquewhite
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    border-radius: 10px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #43465f;
+  }
+  tr:nth-child(odd) {
+    background-color: #43465f;
+  }
 
     
 .nav-list {
