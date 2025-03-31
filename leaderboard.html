@@ -28,43 +28,7 @@
       </nav>
 </header>
 <body>
-  <table>
-    <tr>
-      <th>Company</th>
-      <th>Contact</th>
-      <th>Country</th>
-    </tr>
-    <tr>
-      <td>Alfreds Futterkiste</td>
-      <td>Maria Anders</td>
-      <td>Germany</td>
-    </tr>
-    <tr>
-      <td>Centro comercial Moctezuma</td>
-      <td>Francisco Chang</td>
-      <td>Mexico</td>
-    </tr>
-    <tr>
-      <td>Ernst Handel</td>
-      <td>Roland Mendel</td>
-      <td>Austria</td>
-    </tr>
-    <tr>
-      <td>Island Trading</td>
-      <td>Helen Bennett</td>
-      <td>UK</td>
-    </tr>
-    <tr>
-      <td>Laughing Bacchus Winecellars</td>
-      <td>Yoshi Tannamuri</td>
-      <td>Canada</td>
-    </tr>
-    <tr>
-      <td>Magazzini Alimentari Riuniti</td>
-      <td>Giovanni Rovelli</td>
-      <td>Italy</td>
-    </tr>
-  </table>
+    <header id="root"></header>
     <div id="mydiv"></div>
     <script type="text/babel">
           const container = document.getElementById('root');
@@ -80,8 +44,8 @@
           return { sortedValues, originalIndices };
         }
 
-        const usages = [5, 2, 8, 1, 9, 4];
-        const names = ["Jeff", "Bob", "Jim", "Joe", "John", "Bill"]
+        const usages = [5, 2, 8, 1, 9];
+        const names = ["Jeff", "Bob", "Jim", "Joe", "John"]
         const { sortedValues, originalIndices } = sortWithOriginalIndices(usages);
 
         console.log("Sorted Values:", sortedValues); // Output: [1, 2, 4, 5, 8, 9]
@@ -90,8 +54,37 @@
         for (var i = 0; i < sortedValues.length; i++) {
           filteredNames.push(names[originalIndices[i]])
         }
-         root.render(filteredNames);
+        const sortedNames = filteredNames
+        function TableRender({ nameslist, usagelist }) {
+          return (<table>
+          <tr>
+            <th>Name</th>
+            <th>Energy Usage</th>
+          </tr>
+          <tr>
+            <td>{nameslist[0]}</td>
+            <td>{usagelist[0]}</td>
+          </tr>
+          <tr>
+            <td>{nameslist[1]}</td>
+            <td>{usagelist[1]}</td>
+          </tr>
+          <tr>
+            <td>{nameslist[2]}</td>
+            <td>{usagelist[2]}</td>
+          </tr>
+          <tr>
+            <td>{nameslist[3]}</td>
+            <td>{usagelist[3]}</td>
+          </tr>
+          <tr>
+            <td>{nameslist[4]}</td>
+            <td>{usagelist[4]}</td>
+          </tr>
+        </table>);
+        }
+         root.render(<TableRender nameslist={sortedNames} usagelist={sortedValues}/>)
+         
     </script>
-
   </body>
 </html>
