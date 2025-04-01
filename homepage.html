@@ -6,6 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="stylesheet.css">
     <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+    <script>
+      const supabaseUrl = "https://gcrezomlzfcymopehdhu.supabase.co";
+      const supabaseKey =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdjcmV6b21semZjeW1vcGVoZGh1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI0MjE1MjMsImV4cCI6MjA1Nzk5NzUyM30.mwqO1LaHtSy4dLg0U-YqY1yjNLms4QFjcY6k689eBZY";
+      const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+    </script>
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SLWY32DMJJ"></script>
@@ -48,7 +55,7 @@
 </div>
 </section>
 <section style="text-align: center; font-family: 'Montserrat', sans-serif; margin-top: 40px;">
-    <h2 style="color: AntiqueWhite; margin-bottom: 20px;"><b>Choose Your Path</b></h2>
+    <h2 style="color: #252a49; margin-bottom: 20px;"><b>Choose Your Path</b></h2>
     <div style="display: flex; justify-content: center; gap: 20px;">
 
         <a href="leaderboard.html" style="text-decoration: none;">
@@ -65,12 +72,7 @@
             </button>
         </a>
 
-        <a href="learn.html" style="text-decoration: none;">
-            <button
-                style="background-color: #14c46f; color: #fff; padding: 15px 30px; font-size: 18px; border: none; border-radius: 5px; cursor: pointer; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);">
-                Learn
-            </button>
-        </a>
+        
     </div>
 </section>
 

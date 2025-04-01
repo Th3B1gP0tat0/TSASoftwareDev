@@ -1,86 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href = "stylesheet.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="stylesheet.css" />
     <title>Document</title>
-</head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SLWY32DMJJ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-SLWY32DMJJ');
-</script>
-<header style="background-color:rgb(49, 54, 78);">
-    <!-- Adding tabs to the navigation bar -->
-      <nav>
-        <ul class="nav-list" style="display: flex; list-style: none; padding: 10px; margin: 10px 5;">
-          <li class="nav-item" style="margin: 5 500px;"><a class="nav-header" style="color: #f0f1de; text-decoration: none; font-size: 1.2rem;">EcoTrack</a></li>
-          <li class="nav-item" style="margin: 5 20px;"><a href="homepage.html" class="nav-link" style="color: #f0f1de; text-decoration: none; font-size: 1rem;">Home</a></li>
-          <li class="nav-item" style="margin: 5 20px;"><a href="stats.html" class="nav-link" style="color: #f0f1de; text-decoration: none; font-size: 1rem;">Your Statistics</a></li>
-          <li class="nav-item" style="margin: 5 20px;"><a href="leaderboard.html" class="nav-link" style="color: #f0f1de; text-decoration: none; font-size: 1rem;">Community Leaderboard</a></li>
-          <li class="nav-item" style="margin: 5 20px;"><a href="friends.html" class="nav-link" style="color: #f0f1de; text-decoration: none; font-size: 1rem;">Friends</a></li>
-        </ul>
-    </nav>
-</header>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stats</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+    <script>
+      const supabaseUrl = "https://gcrezomlzfcymopehdhu.supabase.co";
+      const supabaseKey =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdjcmV6b21semZjeW1vcGVoZGh1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI0MjE1MjMsImV4cCI6MjA1Nzk5NzUyM30.mwqO1LaHtSy4dLg0U-YqY1yjNLms4QFjcY6k689eBZY";
+      const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+    </script>
     <style>
-        body {
-            background-color: black; /* Background color */
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif; /* Default font for body */
-            position: relative; /* Required for absolute positioning of child elements */
-            height: 100vh;
-        }
-        title {
-            color: white;
-        }
-        h1 {
-            color: lightgreen; 
-            text-align: center; /* Center the title horizontally */
-            position: absolute;
-            top: 20px; /* Position it at the top of the page */
-            left: 50%;
-            transform: translateX(-50%); /* Adjust to make it exactly centered */
-            font-family: 'Montserrat', sans-serif; /* Change header font */
-        }
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #000;
+        font-family: "Montserrat", sans-serif;
+      }
 
-        /* Separate CSS for the paragraphs, placed in the bottom right quarter */
-        .p1, .p2, .p3 {
-            color: white;
-            position: absolute;
-            right: 200px; /* Align paragraphs to the right */
-            font-family: 'Montserrat', sans-serif; /* Change header font */
-        }
+      #lineGraph {
+        width: 90%;
+        height: 400px;
+        margin: 100px auto;
+        background-color: white;
+        border-radius: 10px;
+      }
 
-        .p1 {
-            bottom: 250px; /* Position the first paragraph near the bottom */
-        }
+      .additional-text {
+        color: white;
+        text-align: center;
+        margin-top: 20px;
+        font-family: "Montserrat", sans-serif;
+      }
 
-        .p2 {
-            bottom: 190px; /* Position the second paragraph slightly above the first */
-        }
+      .nav-list {
+        display: flex;
+        list-style: none;
+        padding: 10px;
+        margin: 10px 5px;
+      }
 
-        .p3 {
-            bottom: 130px; /* Position the third paragraph at the bottom */
-        }
+      .nav-item {
+        margin: 5px 20px;
+      }
+
+      .nav-header {
+        color: #f0f1de;
+        text-decoration: none;
+        font-size: 1.2rem;
+      }
+
+      .nav-link {
+        color: #f0f1de;
+        text-decoration: none;
+        font-size: 1rem;
+      }
     </style>
-</head>
-<body>
-    <h1>Statistics</h1>
-    <p class="p1">Lowest Energy Usage:</p>
-    <p class="p2">Most Green Energy Used:</p>
-    <p class="p3">Longest Time over 50% Green Energy:</p>
-</body>
+  </head>
+  <body>
+    <header style="background-color: rgb(49, 54, 78)">
+      <nav>
+        <ul class="nav-list">
+          <li class="nav-item" style="margin-right: auto">
+            <a class="nav-header">EcoTrack</a>
+          </li>
+          <li class="nav-item">
+            <a href="homepage.html" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="stats.html" class="nav-link">Your Statistics</a>
+          </li>
+          <li class="nav-item">
+            <a href="leaderboard.html" class="nav-link"
+              >Community Leaderboard</a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="friends.html" class="nav-link">Friends</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <div id="lineGraph"></div>
+
+    <div class="additional-text" id="stats"></div>
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script>
+      var data = [
+        {
+          x: ["January", "February", "March", "April"],
+          y: [10, 20, 22, 23],
+          mode: "lines+markers",
+          name: "Your Energy Usage",
+          line: { color: "orange" },
+        },
+        {
+          x: ["January", "February", "March", "April"],
+          y: [12, 18, 20, 21],
+          mode: "lines+markers",
+          name: "Average Users",
+          line: { color: "lightblue" },
+        },
+        {
+          x: ["January", "February", "March", "April"],
+          y: [8, 15, 18, 19],
+          mode: "lines+markers",
+          name: "Most Efficient Users",
+          line: { color: "green" },
+        },
+      ];
+
+      var layout = {
+        title: {
+          text: "Renewable Energy Usage",
+          font: { size: 20 },
+        },
+        xaxis: {
+          title: "Month",
+          tickfont: {
+            size: 14,
+            color: "white",
+          },
+        },
+        yaxis: {
+          title: "Usage Percentage",
+          tickmode: "linear",
+          tick0: 0,
+          dtick: 5,
+          range: [0, 30],
+          tickfont: {
+            size: 14,
+            color: "white",
+          },
+        },
+        paper_bgcolor: "#000",
+        plot_bgcolor: "#000",
+        font: { color: "white" },
+      };
+
+      Plotly.newPlot("lineGraph", data, layout);
+
+      function calculateStatistics(data) {
+        let yValues = data[0].y;
+        let min = Math.min(...yValues);
+        let max = Math.max(...yValues);
+        let longestAbove20 = yValues.filter((value) => value > 20).length;
+
+        let statsDiv = document.getElementById("stats");
+        statsDiv.innerHTML = `
+                <p>Lowest Value: ${min}</p>
+                <p>Highest Value: ${max}</p>
+                <p>Longest Period Above 20: ${longestAbove20} months</p>
+            `;
+      }
+
+      calculateStatistics(data);
+    </script>
+  </body>
 </html>
