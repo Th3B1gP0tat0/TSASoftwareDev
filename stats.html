@@ -1,71 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stylesheet.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="stylesheet.css" />
     <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+    <script>
+      const supabaseUrl = "https://gcrezomlzfcymopehdhu.supabase.co";
+      const supabaseKey =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdjcmV6b21semZjeW1vcGVoZGh1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI0MjE1MjMsImV4cCI6MjA1Nzk5NzUyM30.mwqO1LaHtSy4dLg0U-YqY1yjNLms4QFjcY6k689eBZY";
+      const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+    </script>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #000;
-            font-family: 'Montserrat', sans-serif;
-        }
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #000;
+        font-family: "Montserrat", sans-serif;
+      }
 
-        #lineGraph {
-            width: 90%;
-            height: 400px;
-            margin: 100px auto;
-            background-color: white;
-            border-radius: 10px;
-        }
+      #lineGraph {
+        width: 90%;
+        height: 400px;
+        margin: 100px auto;
+        background-color: white;
+        border-radius: 10px;
+      }
 
-        .additional-text {
-            color: white;
-            text-align: center;
-            margin-top: 20px;
-            font-family: 'Montserrat', sans-serif;
-        }
+      .additional-text {
+        color: white;
+        text-align: center;
+        margin-top: 20px;
+        font-family: "Montserrat", sans-serif;
+      }
 
-        .nav-list {
-            display: flex;
-            list-style: none;
-            padding: 10px;
-            margin: 10px 5px;
-        }
+      .nav-list {
+        display: flex;
+        list-style: none;
+        padding: 10px;
+        margin: 10px 5px;
+      }
 
-        .nav-item {
-            margin: 5px 20px;
-        }
+      .nav-item {
+        margin: 5px 20px;
+      }
 
-        .nav-header {
-            color: #f0f1de;
-            text-decoration: none;
-            font-size: 1.2rem;
-        }
+      .nav-header {
+        color: #f0f1de;
+        text-decoration: none;
+        font-size: 1.2rem;
+      }
 
-        .nav-link {
-            color: #f0f1de;
-            text-decoration: none;
-            font-size: 1rem;
-        }
+      .nav-link {
+        color: #f0f1de;
+        text-decoration: none;
+        font-size: 1rem;
+      }
     </style>
-</head>
-<body>
-    <header style="background-color: rgb(49, 54, 78);">
-        <nav>
-            <ul class="nav-list">
-                <li class="nav-item" style="margin-right: auto;">
-                    <a class="nav-header">EcoTrack</a>
-                </li>
-                <li class="nav-item"><a href="homepage.html" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="stats.html" class="nav-link">Your Statistics</a></li>
-                <li class="nav-item"><a href="leaderboard.html" class="nav-link">Community Leaderboard</a></li>
-                <li class="nav-item"><a href="friends.html" class="nav-link">Friends</a></li>
-            </ul>
-        </nav>
+  </head>
+  <body>
+    <header style="background-color: rgb(49, 54, 78)">
+      <nav>
+        <ul class="nav-list">
+          <li class="nav-item" style="margin-right: auto">
+            <a class="nav-header">EcoTrack</a>
+          </li>
+          <li class="nav-item">
+            <a href="homepage.html" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="stats.html" class="nav-link">Your Statistics</a>
+          </li>
+          <li class="nav-item">
+            <a href="leaderboard.html" class="nav-link"
+              >Community Leaderboard</a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="friends.html" class="nav-link">Friends</a>
+          </li>
+        </ul>
+      </nav>
     </header>
 
     <div id="lineGraph"></div>
@@ -74,75 +90,75 @@
 
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script>
-        var data = [
-            {
-                x: ["January", "February", "March", "April"], 
-                y: [10, 20, 22, 23],
-                mode: 'lines+markers',
-                name: "Your Energy Usage",
-                line: { color: 'orange' }
-            },
-            {
-                x: ["January", "February", "March", "April"],
-                y: [12, 18, 20, 21], 
-                mode: 'lines+markers',
-                name: "Average Users",
-                line: { color: 'lightblue' }
-            },
-            {
-                x: ["January", "February", "March", "April"],
-                y: [8, 15, 18, 19], 
-                mode: 'lines+markers',
-                name: "Most Efficient Users",
-                line: { color: 'green' }
-            }
-        ];
+      var data = [
+        {
+          x: ["January", "February", "March", "April"],
+          y: [10, 20, 22, 23],
+          mode: "lines+markers",
+          name: "Your Energy Usage",
+          line: { color: "orange" },
+        },
+        {
+          x: ["January", "February", "March", "April"],
+          y: [12, 18, 20, 21],
+          mode: "lines+markers",
+          name: "Average Users",
+          line: { color: "lightblue" },
+        },
+        {
+          x: ["January", "February", "March", "April"],
+          y: [8, 15, 18, 19],
+          mode: "lines+markers",
+          name: "Most Efficient Users",
+          line: { color: "green" },
+        },
+      ];
 
-        var layout = {
-            title: {
-                text: 'Renewable Energy Usage',
-                font: { size: 20 }
-            },
-            xaxis: {
-                title: 'Month',
-                tickfont: {
-                    size: 14,
-                    color: 'white'
-                }
-            },
-            yaxis: {
-                title: "Usage Percentage",
-                tickmode: 'linear',
-                tick0: 0,
-                dtick: 5,
-                range: [0, 30],
-                tickfont: {
-                    size: 14,
-                    color: 'white'
-                }
-            },
-            paper_bgcolor: '#000',
-            plot_bgcolor: '#000',
-            font: { color: 'white' }
-        };
+      var layout = {
+        title: {
+          text: "Renewable Energy Usage",
+          font: { size: 20 },
+        },
+        xaxis: {
+          title: "Month",
+          tickfont: {
+            size: 14,
+            color: "white",
+          },
+        },
+        yaxis: {
+          title: "Usage Percentage",
+          tickmode: "linear",
+          tick0: 0,
+          dtick: 5,
+          range: [0, 30],
+          tickfont: {
+            size: 14,
+            color: "white",
+          },
+        },
+        paper_bgcolor: "#000",
+        plot_bgcolor: "#000",
+        font: { color: "white" },
+      };
 
-        Plotly.newPlot('lineGraph', data, layout);
+      Plotly.newPlot("lineGraph", data, layout);
 
-        function calculateStatistics(data) {
-            let yValues = data[0].y;
-            let min = Math.min(...yValues);
-            let max = Math.max(...yValues);
-            let longestAbove20 = yValues.filter(value => value > 20).length;
+      function calculateStatistics(data) {
+        let yValues = data[0].y;
+        let min = Math.min(...yValues);
+        let max = Math.max(...yValues);
+        let longestAbove20 = yValues.filter((value) => value > 20).length;
 
-            let statsDiv = document.getElementById('stats');
-            statsDiv.innerHTML = `
+        let statsDiv = document.getElementById("stats");
+        statsDiv.innerHTML = `
                 <p>Lowest Value: ${min}</p>
                 <p>Highest Value: ${max}</p>
                 <p>Longest Period Above 20: ${longestAbove20} months</p>
             `;
-        }
+      }
 
-        calculateStatistics(data);
+      calculateStatistics(data);
     </script>
-</body>
+  </body>
 </html>
