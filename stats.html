@@ -1,6 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href = "stylesheet.css">
+    <title>Document</title>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SLWY32DMJJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SLWY32DMJJ');
+</script>
+<header style="background-color:rgb(49, 54, 78);">
+    <!-- Adding tabs to the navigation bar -->
+      <nav>
+        <ul class="nav-list" style="display: flex; list-style: none; padding: 10px; margin: 10px 5;">
+          <li class="nav-item" style="margin: 5 500px;"><a class="nav-header" style="color: #f0f1de; text-decoration: none; font-size: 1.2rem;">EcoTrack</a></li>
+          <li class="nav-item" style="margin: 5 20px;"><a href="homepage.html" class="nav-link" style="color: #f0f1de; text-decoration: none; font-size: 1rem;">Home</a></li>
+          <li class="nav-item" style="margin: 5 20px;"><a href="stats.html" class="nav-link" style="color: #f0f1de; text-decoration: none; font-size: 1rem;">Your Statistics</a></li>
+          <li class="nav-item" style="margin: 5 20px;"><a href="leaderboard.html" class="nav-link" style="color: #f0f1de; text-decoration: none; font-size: 1rem;">Community Leaderboard</a></li>
+          <li class="nav-item" style="margin: 5 20px;"><a href="friends.html" class="nav-link" style="color: #f0f1de; text-decoration: none; font-size: 1rem;">Friends</a></li>
+        </ul>
+    </nav>
+</header>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stats</title>
@@ -47,15 +77,6 @@
         }
     </style>
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SLWY32DMJJ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-SLWY32DMJJ');
-</script>
 <body>
     <h1>Statistics</h1>
     <p class="p1">Lowest Energy Usage:</p>
