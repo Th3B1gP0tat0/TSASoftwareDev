@@ -18,17 +18,11 @@
 
   gtag('config', 'G-SLWY32DMJJ');
 </script>
-<header style="font-family: 'Montserrat', sans-serif; background-color: #252a49; padding: 10px 0;">
-    <div style="text-align: center; margin-top: 20px;">
-        <h1 style="color: #14c46f; font-size: 4rem; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
-            EcoTrack
-        </h1>
-    </div>
-</header>
-<header>
+<header style="background-color:rgb(49, 54, 78);">
     <!-- Adding tabs to the navigation bar -->
       <nav>
-        <ul class="nav-list" style="display: flex; justify-content: center; list-style: none; padding: 0; margin: 10px 0;">
+        <ul class="nav-list" style="display: flex; list-style: none; padding: 10px; margin: 10px 5;">
+          <li class="nav-item" style="margin: 5 500px;"><a class="nav-header" style="color: #f0f1de; text-decoration: none; font-size: 1.2rem;">EcoTrack</a></li>
           <li class="nav-item" style="margin: 5 20px;"><a href="homepage.html" class="nav-link" style="color: #f0f1de; text-decoration: none; font-size: 1rem;">Home</a></li>
           <li class="nav-item" style="margin: 5 20px;"><a href="stats.html" class="nav-link" style="color: #f0f1de; text-decoration: none; font-size: 1rem;">Your Statistics</a></li>
           <li class="nav-item" style="margin: 5 20px;"><a href="leaderboard.html" class="nav-link" style="color: #f0f1de; text-decoration: none; font-size: 1rem;">Community Leaderboard</a></li>
@@ -37,6 +31,7 @@
       </nav>
 </header>
 <body>
+    <h2 style="color: AntiqueWhite; margin-top: 20px; margin-left: 30px"><b>Community Leaderboard</b></h2>
     <header id="root"></header>
     <div id="mydiv"></div>
     <script type="text/babel">
@@ -53,7 +48,7 @@
           return { sortedValues, originalIndices };
         }
 
-        const usages = [5, 2, 8, 1, 9];
+        const usages = [913, 789, 1056, 957, 836];
         const names = ["Jeff", "Bob", "Jim", "Joe", "John"]
         const { sortedValues, originalIndices } = sortWithOriginalIndices(usages);
 
@@ -65,30 +60,30 @@
         }
         const sortedNames = filteredNames
         function TableRender({ nameslist, usagelist }) {
-          return (<table>
+          return (<table class="table-spacing">
           <tr>
             <th>Name</th>
             <th>Energy Usage</th>
           </tr>
           <tr>
             <td>{nameslist[0]}</td>
-            <td>{usagelist[0]}</td>
+            <td>{usagelist[0]} kWH</td>
           </tr>
           <tr>
             <td>{nameslist[1]}</td>
-            <td>{usagelist[1]}</td>
+            <td>{usagelist[1]} kWH</td>
           </tr>
           <tr>
             <td>{nameslist[2]}</td>
-            <td>{usagelist[2]}</td>
+            <td>{usagelist[2]} kWH</td>
           </tr>
           <tr>
             <td>{nameslist[3]}</td>
-            <td>{usagelist[3]}</td>
+            <td>{usagelist[3]} kWH</td>
           </tr>
           <tr>
             <td>{nameslist[4]}</td>
-            <td>{usagelist[4]}</td>
+            <td>{usagelist[4]} kWH</td>
           </tr>
         </table>);
         }
