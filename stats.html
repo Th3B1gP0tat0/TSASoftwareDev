@@ -16,7 +16,6 @@
       body {
         margin: 0;
         padding: 0;
-        background-color: #000;
         font-family: "Montserrat", sans-serif;
       }
 
@@ -34,56 +33,21 @@
         margin-top: 20px;
         font-family: "Montserrat", sans-serif;
       }
-
-      .nav-list {
-        display: flex;
-        list-style: none;
-        padding: 10px;
-        margin: 10px 5px;
-      }
-
-      .nav-item {
-        margin: 5px 20px;
-      }
-
-      .nav-header {
-        color: #f0f1de;
-        text-decoration: none;
-        font-size: 1.2rem;
-      }
-
-      .nav-link {
-        color: #f0f1de;
-        text-decoration: none;
-        font-size: 1rem;
-      }
     </style>
   </head>
   <body>
-    <header style="background-color: rgb(49, 54, 78)">
-      <nav>
-        <ul class="nav-list">
-          <li class="nav-item" style="margin-right: auto">
-            <a class="nav-header">EcoTrack</a>
-          </li>
-          <li class="nav-item">
-            <a href="homepage.html" class="nav-link">Home</a>
-          </li>
-          <li class="nav-item">
-            <a href="stats.html" class="nav-link">Your Statistics</a>
-          </li>
-          <li class="nav-item">
-            <a href="leaderboard.html" class="nav-link"
-              >Community Leaderboard</a
-            >
-          </li>
-          <li class="nav-item">
-            <a href="friends.html" class="nav-link">Friends</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-
+    <header style="background-color:rgb(49, 54, 78);">
+      <!-- Adding tabs to the navigation bar -->
+        <nav>
+          <ul class="nav-list" style="display: flex; list-style: none; padding: 10px; margin: 10px 5;">
+            <li class="nav-item" style="margin: 5 500px;"><a class="nav-header" style="color: #f0f1de; text-decoration: none; font-size: 1.2rem;">EcoTrack</a></li>
+            <li class="nav-item" style="margin: 5 20px;"><a href="homepage.html" class="nav-link" style="color: #f0f1de; text-decoration: none; font-size: 1rem;">Home</a></li>
+            <li class="nav-item" style="margin: 5 20px;"><a href="stats.html" class="nav-link" style="color: #f0f1de; text-decoration: none; font-size: 1rem;">Your Statistics</a></li>
+            <li class="nav-item" style="margin: 5 20px;"><a href="leaderboard.html" class="nav-link" style="color: #f0f1de; text-decoration: none; font-size: 1rem;">Community Leaderboard</a></li>
+            <li class="nav-item" style="margin: 5 20px;"><a href="friends.html" class="nav-link" style="color: #f0f1de; text-decoration: none; font-size: 1rem;">Friends</a></li>
+          </ul>
+        </nav>
+  </header>
     <div id="lineGraph"></div>
 
     <div class="additional-text" id="stats"></div>
@@ -137,8 +101,8 @@
             color: "white",
           },
         },
-        paper_bgcolor: "#000",
-        plot_bgcolor: "#000",
+        paper_bgcolor: "#262938",
+        plot_bgcolor: "#262938",
         font: { color: "white" },
       };
 

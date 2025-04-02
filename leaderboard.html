@@ -40,9 +40,9 @@
           function sortWithOriginalIndices(array) {
           const indexedArray = array.map((value, index) => ({ value, index }));
 
-          indexedArray.sort((a, b) => a.value - b.value);
+          indexedArray.sort((a, b) => b.value - a.value);
 
-          const sortedValues = indexedArray.map(item => item.value);
+          const sortedValues  =indexedArray.map(item => item.value);
           const originalIndices = indexedArray.map(item => item.index);
 
           return { sortedValues, originalIndices };
@@ -63,27 +63,27 @@
           return (<table class="table-spacing">
           <tr>
             <th>Name</th>
-            <th>Energy Usage</th>
+            <th>Energy Points</th>
           </tr>
           <tr>
             <td>{nameslist[0]}</td>
-            <td>{usagelist[0]} kWH</td>
+            <td>{usagelist[0]} points</td>
           </tr>
           <tr>
             <td>{nameslist[1]}</td>
-            <td>{usagelist[1]} kWH</td>
+            <td>{usagelist[1]} points</td>
           </tr>
           <tr>
             <td>{nameslist[2]}</td>
-            <td>{usagelist[2]} kWH</td>
+            <td>{usagelist[2]} points</td>
           </tr>
           <tr>
             <td>{nameslist[3]}</td>
-            <td>{usagelist[3]} kWH</td>
+            <td>{usagelist[3]} points</td>
           </tr>
           <tr>
             <td>{nameslist[4]}</td>
-            <td>{usagelist[4]} kWH</td>
+            <td>{usagelist[4]} points</td>
           </tr>
         </table>);
         }

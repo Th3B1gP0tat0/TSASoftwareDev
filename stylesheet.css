@@ -9,6 +9,7 @@ body, h1, h2, h3, p, ul, ol, li, a {
 
 /* General body styles */
 body {
+    margin-top: 0px;
     font-family: Arial, sans-serif;
     font-size: 16px;
     line-height: 1.6;
@@ -108,6 +109,22 @@ table {
     background-color: #3f4b5c;
     color: #9c9c9c;
 }
+button:hover {
+    background-color: #12a957;
+    transform: scale(1.05);
+}
+.progress-bar {
+    background: linear-gradient(90deg, #14c46f, #4bdba7);
+    border-radius: 10px;
+}
+.energy-tip-container {
+    margin-top: 30px;
+    padding: 40px;
+    background: #1e2235;
+    border-radius: 12px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
 /* Responsive media queries to adjust to different screen sizes*/
     @media (min-width: 600px) {
         .nav-list {
@@ -160,19 +177,19 @@ table {
         }
     }
     .progress-container {
-        width: 100%;
+        width: 75%;
         background-color: #f3f3f3;
         border-radius: 10px;
         overflow: hidden;
-        margin: 20px 0;
+        margin: 0 0 0 12.5rem;
     }
 
     .progress-bar {
         height: 25px;
-        width: 60%; /* Set percentage dynamically */
+        width: 80%; /* Set percentage dynamically */
         background-color: #4caf50; /* Green color */
         text-align: center;
-        color: white;
+        color: rgb(51, 52, 70);
         line-height: 25px; /* Align text vertically */
     }
 
