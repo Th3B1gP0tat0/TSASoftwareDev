@@ -30,9 +30,11 @@
       </nav>
 </header>
 <body>
+    <!--Formatting leaderboard title-->
     <h2 style="color: AntiqueWhite; margin-top: 20px; margin-left: 30px"><b>Community Leaderboard</b></h2>
     <header id="root"></header>
     <div id="mydiv"></div>
+    <!--Ranking users in order based on no. of points.-->
     <script type="text/babel">
           const container = document.getElementById('root');
           const root = ReactDOM.createRoot(container);
@@ -46,7 +48,7 @@
 
           return { sortedValues, originalIndices };
         }
-
+        //Adding sample users and scores
         const usages = [913, 789, 1056, 957, 836];
         const names = ["Jeff", "Bob", "Jim", "Joe", "John"]
         const { sortedValues, originalIndices } = sortWithOriginalIndices(usages);
@@ -57,6 +59,7 @@
         for (var i = 0; i < sortedValues.length; i++) {
           filteredNames.push(names[originalIndices[i]])
         }
+        //Displaying the leaderboard on the screens
         const sortedNames = filteredNames
         function TableRender({ nameslist, usagelist }) {
           return (<table class="table-spacing">
