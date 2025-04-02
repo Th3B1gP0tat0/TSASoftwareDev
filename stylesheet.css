@@ -40,7 +40,7 @@ h3 {
     text-align:right;
 }
 
-/* Link styles */
+/* Navbar styles */
 a {
     color: #0078d7;
     text-decoration: none;
@@ -81,7 +81,7 @@ table {
 }
 
 .nav-item:first-child {
-    margin-right: auto; /* Pushes EcoTrack to the left */
+    margin-right: auto;
 }
 .nav-item {
     margin-top: 0px;
@@ -113,6 +113,7 @@ button:hover {
     background-color: #12a957;
     transform: scale(1.05);
 }
+/* Progress Bar Appearance */
 .progress-bar {
     background: linear-gradient(90deg, #14c46f, #4bdba7);
     border-radius: 10px;
