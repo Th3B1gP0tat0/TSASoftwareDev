@@ -1,97 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href = "stylesheet.css">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Community Leaderboard</title>
+  <link rel="stylesheet" href="stylesheet.css" />
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script>
+    const supabaseUrl = "https://gcrezomlzfcymopehdhu.supabase.co";
+    const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdjcmV6b21semZjeW1vcGVoZGh1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDI0MjE1MjMsImV4cCI6MjA1Nzk5NzUyM30.mwqO1LaHtSy4dLg0U-YqY1yjNLms4QFjcY6k689eBZY";
+    window.supabase = supabase.createClient(supabaseUrl, supabaseKey);
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SLWY32DMJJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag("js", new Date());
+    gtag("config", "G-SLWY32DMJJ");
+  </script>
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SLWY32DMJJ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-SLWY32DMJJ');
-</script>
-<header style="background-color:rgb(49, 54, 78);">
-    <!-- Adding tabs to the navigation bar -->
-      <nav>
-        <ul class="nav-list" style="display: flex; list-style: none; padding: 10px; margin: 10px 5;">
-          <li class="nav-item" style="margin: 5 500px;"><a class="nav-header" style="color: #f0f1de; text-decoration: none; font-size: 1.2rem;">EcoTrack</a></li>
-          <li class="nav-item" style="margin: 5 20px;"><a href="homepage.html" class="nav-link" style="color: #f0f1de; text-decoration: none; font-size: 1rem;">Home</a></li>
-          <li class="nav-item" style="margin: 5 20px;"><a href="stats.html" class="nav-link" style="color: #f0f1de; text-decoration: none; font-size: 1rem;">Your Statistics</a></li>
-          <li class="nav-item" style="margin: 5 20px;"><a href="leaderboard.html" class="nav-link" style="color: #f0f1de; text-decoration: none; font-size: 1rem;">Community Leaderboard</a></li>
-          <li class="nav-item" style="margin: 5 20px;"><a href="friends.html" class="nav-link" style="color: #f0f1de; text-decoration: none; font-size: 1rem;">Friends</a></li>
-        </ul>
-      </nav>
-</header>
-<body>
-    <!--Formatting leaderboard title-->
-    <h2 style="color: AntiqueWhite; margin-top: 20px; margin-left: 30px"><b>Community Leaderboard</b></h2>
-    <header id="root"></header>
-    <div id="mydiv"></div>
-    <!--Ranking users in order based on no. of points.-->
-    <script type="text/babel">
-          const container = document.getElementById('root');
-          const root = ReactDOM.createRoot(container);
-          function sortWithOriginalIndices(array) {
-          const indexedArray = array.map((value, index) => ({ value, index }));
+<body style="background-color: rgb(33, 37, 51); color: white; font-family: Arial, sans-serif;">
 
-          indexedArray.sort((a, b) => b.value - a.value);
+  <!-- Navigation Bar -->
+  <header style="background-color: rgb(49, 54, 78);">
+    <nav>
+      <ul class="nav-list" style="display: flex; list-style: none; padding: 10px; margin: 0;">
+        <li class="nav-item" style="margin-right: auto;">
+          <a class="nav-header" style="color: #f0f1de; text-decoration: none; font-size: 1.2rem;">EcoTrack</a>
+        </li>
+        <li class="nav-item" style="margin: 0 20px;">
+          <a href="homepage.html" class="nav-link" style="color: #f0f1de; text-decoration: none;">Home</a>
+        </li>
+        <li class="nav-item" style="margin: 0 20px;">
+          <a href="stats.html" class="nav-link" style="color: #f0f1de; text-decoration: none;">Your Statistics</a>
+        </li>
+        <li class="nav-item" style="margin: 0 20px;">
+          <a href="leaderboard.html" class="nav-link" style="color: #f0f1de; text-decoration: none;">Community Leaderboard</a>
+        </li>
+        <li class="nav-item" style="margin: 0 20px;">
+          <a href="friends.html" class="nav-link" style="color: #f0f1de; text-decoration: none;">Friends</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
 
-          const sortedValues  =indexedArray.map(item => item.value);
-          const originalIndices = indexedArray.map(item => item.index);
+  <!-- Leaderboard Title -->
+  <h2 style="margin: 30px; color: AntiqueWhite;">Community Leaderboard</h2>
 
-          return { sortedValues, originalIndices };
+  <!-- Leaderboard Container -->
+  <div id="leaderboard-root" style="padding: 0 30px;"></div>
+
+  <script type="text/babel">
+    async function fetchAllUsers() {
+      try {
+        const { data, error } = await window.supabase
+          .from("user_data")
+          .select("name, april");
+
+        if (error) {
+          console.error("Supabase error fetching data:", error);
+          return [];
         }
-        //Adding sample users and scores
-        const usages = [913, 789, 1056, 957, 836];
-        const names = ["Jeff", "Bob", "Jim", "Joe", "John"]
-        const { sortedValues, originalIndices } = sortWithOriginalIndices(usages);
 
-        console.log("Sorted Values:", sortedValues); // Output: [1, 2, 4, 5, 8, 9]
-        console.log("Original Indices:", originalIndices); // Output: [3, 1, 5, 0, 2, 4]
-        var filteredNames = [];
-        for (var i = 0; i < sortedValues.length; i++) {
-          filteredNames.push(names[originalIndices[i]])
-        }
-        //Displaying the leaderboard on the screens
-        const sortedNames = filteredNames
-        function TableRender({ nameslist, usagelist }) {
-          return (<table class="table-spacing">
-          <tr>
-            <th>Name</th>
-            <th>Energy Points</th>
-          </tr>
-          <tr>
-            <td>{nameslist[0]}</td>
-            <td>{usagelist[0]} points</td>
-          </tr>
-          <tr>
-            <td>{nameslist[1]}</td>
-            <td>{usagelist[1]} points</td>
-          </tr>
-          <tr>
-            <td>{nameslist[2]}</td>
-            <td>{usagelist[2]} points</td>
-          </tr>
-          <tr>
-            <td>{nameslist[3]}</td>
-            <td>{usagelist[3]} points</td>
-          </tr>
-          <tr>
-            <td>{nameslist[4]}</td>
-            <td>{usagelist[4]} points</td>
-          </tr>
-        </table>);
-        }
-         root.render(<TableRender nameslist={sortedNames} usagelist={sortedValues}/>)
-         
-    </script>
-  </body>
+        return data || [];
+      } catch (err) {
+        console.error("Unexpected error:", err);
+        return [];
+      }
+    }
+
+    function LeaderboardTable({ users }) {
+      return (
+        <table style={{ width: "100%", maxWidth: "600px", color: "white", borderCollapse: "collapse" }}>
+          <thead>
+            <tr style={{ borderBottom: "2px solid white" }}>
+              <th style={{ textAlign: "left", padding: "10px" }}>Rank</th>
+              <th style={{ textAlign: "left", padding: "10px" }}>Name</th>
+              <th style={{ textAlign: "left", padding: "10px" }}>Points</th>
+            </tr>
+          </thead>
+          <tbody>
+            {users.map((user, index) => (
+              <tr key={index} style={{ borderBottom: "1px solid #ccc" }}>
+                <td style={{ padding: "10px" }}>{index + 1}</td>
+                <td style={{ padding: "10px" }}>{user.name}</td>
+                <td style={{ padding: "10px" }}>{user.april || 0}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      );
+    }
+
+    async function initLeaderboard() {
+      const container = document.getElementById("leaderboard-root");
+      const root = ReactDOM.createRoot(container);
+
+      const rawUsers = await fetchAllUsers();
+      const sorted = rawUsers.sort((a, b) => (b.april || 0) - (a.april || 0));
+
+      root.render(<LeaderboardTable users={sorted} />);
+    }
+
+    initLeaderboard();
+  </script>
+</body>
 </html>
