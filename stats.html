@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+    <!--Importing relevant files and links-->
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,6 +14,7 @@
       const supabase = supabase.createClient(supabaseUrl, supabaseKey);
     </script>
     <style>
+    /*CSS for formatting the graph*/
       body {
         margin: 0;
         padding: 0;
@@ -51,9 +53,10 @@
     <div id="lineGraph"></div>
 
     <div class="additional-text" id="stats"></div>
-
+    <!--Importing plotly-->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script>
+        //Adding sample data for each of the three graphs and differentiating the line color
       var data = [
         {
           x: ["January", "February", "March", "April"],
@@ -77,7 +80,7 @@
           line: { color: "green" },
         },
       ];
-
+        //Adding title and scale for graph
       var layout = {
         title: {
           text: "Renewable Energy Usage",
@@ -105,9 +108,9 @@
         plot_bgcolor: "#262938",
         font: { color: "white" },
       };
-
+      //Rendering the graph
       Plotly.newPlot("lineGraph", data, layout);
-
+      //Calculating statistics that go below the graph
       function calculateStatistics(data) {
         let yValues = data[0].y;
         let min = Math.min(...yValues);
