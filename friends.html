@@ -58,9 +58,13 @@
 </div>
 
 <script type="text/babel">
+    const prelist = {
+      "Alice": 123,
+      "Bob": 456,
+      "Charlie": 789
+    }
     function Popup1({ isOpen, onClose }) {
         if (!isOpen) return null;
-
         return (
             <div style={{
                 position:"fixed", top: 0, left: 0, width: "100%", height: "100%",
@@ -83,7 +87,14 @@
                         ×
                     </button>
                     <h2>Add Friend</h2>
-                    <p>Input the person's name below</p>
+                    <label for="nameadd">Input the name of the person below.</label>
+                    <input
+                    type="text"
+                    id="nameadd"
+                    name="nameadd"
+                    required
+                    size="10" />
+                    <input type="submit" value="Submit" />
                 </div>
             </div>
         );
@@ -134,7 +145,14 @@
                         ×
                     </button>
                     <h2>Remove Friend</h2>
-                    <p>Input the name of the friend below.</p>
+                    <label for="nameremove">Input the name of the friend below.</label>
+                    <input
+                    type="text"
+                    id="nameremove"
+                    name="nameremove"
+                    required
+                    size="10" />
+                    <input type="submit" value="Submit" />
                 </div>
             </div>
         );
@@ -182,7 +200,7 @@
 
       function sortWithOriginalIndices(array) {
         const indexedArray = array.map((value, index) => ({ value, index }));
-        indexedArray.sort((a, b) => a.value - b.value);
+        indexedArray.sort((a, b) => b.value - a.value);
         const sortedValues = indexedArray.map((item) => item.value);
         const originalIndices = indexedArray.map((item) => item.index);
         return { sortedValues, originalIndices };
@@ -194,7 +212,7 @@
             <thead>
               <tr>
                 <th>Name</th>
-                <th>April Usage (kWH)</th>
+                <th>Energy Points</th>
               </tr>
             </thead>
             <tbody>
