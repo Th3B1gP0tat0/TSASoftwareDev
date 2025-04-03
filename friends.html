@@ -52,18 +52,12 @@
     </nav>
   </header>
 
-  <body>
     <div style="display: flex; justify-content: right; align-items: center; gap: 20px; margin-right: 20px;">
       <div id="root"></div>
       <div id="root1"></div>
     </div>
 
     <script type="text/babel">
-      const prelist = {
-        "Alice": 123,
-        "Bob": 456,
-        "Charlie": 789
-      }
       function Popup1({ isOpen, onClose }) {
         if (!isOpen) return null;
         return (
@@ -249,10 +243,9 @@
         const originalIndices = indexedArray.map((item) => item.index);
         return { sortedValues, originalIndices };
       }
-      <!---->
       function LeaderboardTable({ nameslist, usagelist }) {
         return (
-          <table class="table-spacing" style={{ color: "white" }}>
+          <table className="table-spacing" style={{ color: "white" }}>
             <thead>
               <tr>
                 <th>Name</th>
@@ -280,6 +273,7 @@
         const { sortedValues, originalIndices } =
           sortWithOriginalIndices(usages);
         const sortedNames = originalIndices.map((i) => names[i]);
+        console.log(data);
 
         reactRoot.render(
           <LeaderboardTable nameslist={sortedNames} usagelist={sortedValues} />
